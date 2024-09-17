@@ -23,8 +23,8 @@
         #region Код, автоматически созданный конструктором форм Windows
 
         /// <summary>
-        /// Требуемый метод для поддержки конструктора — не изменяйте 
-        /// содержимое этого метода с помощью редактора кода.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
@@ -33,6 +33,7 @@
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.label = new System.Windows.Forms.Label();
             this.scoreLabel = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.coin)).BeginInit();
             this.SuspendLayout();
             // 
@@ -71,6 +72,10 @@
             this.scoreLabel.TabIndex = 3;
             this.scoreLabel.Text = "0";
             // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -88,8 +93,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.coin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
+
+        private System.Windows.Forms.Timer timer2;
 
         #endregion
         private System.Windows.Forms.PictureBox coin;

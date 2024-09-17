@@ -38,7 +38,8 @@ namespace snakeOriginal
         {
             InitializeComponent();
             Create_Boxes();
-            this.KeyDown += new KeyEventHandler(Move);
+            this.KeyDown += new KeyEventHandler(SaveLastKey);
+            timer2.Tick += Move;
             snake1[0] = new PictureBox();
             snake1[0].Size = new Size(fieldSize, fieldSize);
             snake1[0].Location = new Point(300, 300);
@@ -47,13 +48,26 @@ namespace snakeOriginal
             this.Controls.Add(snake1[0]);
             snake1[0].BringToFront();
             
+            
+        }
+
+        private void SaveLastKey(object sender, KeyEventArgs e)
+        {
+            if (_lastMove == Keys.None && e.KeyCode == Keys.Enter)
+            {
+                this.timer2.Enabled = true;
+            }
+            if (e.KeyCode == Keys.P)
+            {
+                this.timer2.Enabled = !this.timer2.Enabled;
+            }
         }
         
-        private void Move(object sender, KeyEventArgs e)
+        private void Move(object sender, EventArgs e)
         {
             for (int i = score; i >= 0; i--)
             {
-                if ((e.KeyCode == Keys.Right || e.KeyCode == Keys.D) && timer1.Enabled == true)
+                if ((_lastMove == Keys.Right || _lastMove == Keys.D) && timer1.Enabled == true)
                 {
                     if (i == 0)
                     {
@@ -68,7 +82,7 @@ namespace snakeOriginal
                     
 
                 }
-                if ((e.KeyCode == Keys.Left || e.KeyCode == Keys.A) && timer1.Enabled == true)
+                if ((_lastMove == Keys.Left || _lastMove == Keys.A) && timer1.Enabled == true)
                 {
                     if (i == 0)
                     {
@@ -83,7 +97,7 @@ namespace snakeOriginal
                     
 
                 }
-                if ((e.KeyCode == Keys.Up || e.KeyCode == Keys.W) && timer1.Enabled == true)
+                if ((_lastMove == Keys.Up || _lastMove == Keys.W) && timer1.Enabled == true)
                 {
                     if (i == 0)
                     {
@@ -98,7 +112,7 @@ namespace snakeOriginal
                     
 
                 }
-                if ((e.KeyCode == Keys.Down || e.KeyCode == Keys.S) && timer1.Enabled == true)
+                if ((_lastMove == Keys.Down || _lastMove == Keys.S) && timer1.Enabled == true)
                 {
                     if (i == 0)
                     {

@@ -61,6 +61,7 @@ namespace snakeOriginal
             {
                 this.timer2.Enabled = !this.timer2.Enabled;
             }
+            
 
             _lastMove = e.KeyCode;
         }
